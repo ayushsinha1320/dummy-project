@@ -7,12 +7,20 @@
     {
       "testName": "has title",
       "status": "failed"
+    },
+    {
+      "testName": "get started link",
+      "status": "passed"
+    },
+    {
+      "testName": "has title",
+      "status": "failed"
     }
   ],
   "summary": {
-    "total": 2,
-    "passed": 1,
-    "failed": 1,
+    "total": 4,
+    "passed": 2,
+    "failed": 2,
     "skipped": 0
   }
 }
