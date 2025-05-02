@@ -1,14 +1,6 @@
 {
   "tests": [
     {
-      "testName": "get started link",
-      "status": "passed"
-    },
-    {
-      "testName": "has title",
-      "status": "passed"
-    },
-    {
       "testName": "has title",
       "status": "passed"
     },
@@ -18,6 +10,14 @@
     },
     {
       "testName": "has title",
+      "status": "passed"
+    },
+    {
+      "testName": "has title",
+      "status": "passed"
+    },
+    {
+      "testName": "get started link",
       "status": "passed"
     },
     {
