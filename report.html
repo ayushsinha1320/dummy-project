@@ -62,11 +62,11 @@
   <div class="container">
     <div class="header">Test Summary</div>
     <div class="content">
-      <p><span class="label">Total Tests:</span> 0</p>
+      <p><span class="label">Total Tests:</span> <span id="total-tests">0</span></p>
       <p>
-        <span class="label green">Passed:</span> 0 &nbsp;
-        <span class="label red">Failed:</span> 0 &nbsp;
-        <span class="label orange">Skipped:</span> 0
+        <span class="label green">Passed:</span> <span id="passed">0</span> &nbsp;
+        <span class="label red">Failed:</span> <span id="failed">0</span> &nbsp;
+        <span class="label orange">Skipped:</span> <span id="skipped">0</span>
       </p>
       <p><span class="label">Total Duration:</span> 0 minutes and 0.00 seconds</p>
       <p><span class="label">Date:</span> Wed Jul 31 2024 00:05:32 GMT+0530 (India Standard Time)</p>
@@ -75,14 +75,79 @@
       <p><span class="label">Site Version:</span> VanillaFramework 24.31.0.8866-a3bf7d62 MyAccount 24.31.0.8866-a3bf7d62</p>
       <p><span class="label">BrowserStack Public Links:</span></p>
       <a class="link" href="#">Click here for the detailed Playwright report.</a>
-      <table class="table">
+      <table class="table" id="test-table">
         <tr>
           <th>Test Case</th>
           <th>Status</th>
           <th>Duration</th>
         </tr>
+        <!-- Dynamic rows will be added here -->
       </table>
     </div>
   </div>
+
+  <script>
+    // Sample JSON data
+    const testData = {
+      "tests": [
+        { "testName": "get started link", "status": "passed" },
+        { "testName": "has title", "status": "passed" },
+        { "testName": "has title", "status": "passed" },
+        { "testName": "get started link", "status": "passed" },
+        { "testName": "has title", "status": "passed" },
+        { "testName": "get started link", "status": "passed" }
+      ],
+      "summary": {
+        "total": 6,
+        "passed": 6,
+        "failed": 0,
+        "skipped": 0
+      }
+    };
+
+    // Function to update the table with test data
+    function populateTable(data) {
+      const table = document.getElementById('test-table');
+      const totalTestsElement = document.getElementById('total-tests');
+      const passedElement = document.getElementById('passed');
+      const failedElement = document.getElementById('failed');
+      const skippedElement = document.getElementById('skipped');
+
+      // Update summary
+      totalTestsElement.textContent = data.summary.total;
+      passedElement.textContent = data.summary.passed;
+      failedElement.textContent = data.summary.failed;
+      skippedElement.textContent = data.summary.skipped;
+
+      // Populate table with test cases
+      data.tests.forEach(test => {
+        const row = document.createElement('tr');
+        const testNameCell = document.createElement('td');
+        const statusCell = document.createElement('td');
+        const durationCell = document.createElement('td');
+
+        testNameCell.textContent = test.testName;
+        statusCell.textContent = test.status;
+        durationCell.textContent = "0.00";  // Assuming duration is not provided
+
+        // Add color based on status
+        if (test.status === 'passed') {
+          statusCell.classList.add('green');
+        } else if (test.status === 'failed') {
+          statusCell.classList.add('red');
+        } else if (test.status === 'skipped') {
+          statusCell.classList.add('orange');
+        }
+
+        row.appendChild(testNameCell);
+        row.appendChild(statusCell);
+        row.appendChild(durationCell);
+        table.appendChild(row);
+      });
+    }
+
+    // Call the function to populate the table
+    populateTable(testData);
+  </script>
 </body>
 </html>
