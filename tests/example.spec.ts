@@ -3,8 +3,8 @@ import { test, expect } from '@playwright/test';
 test('has title', async ({ page }) => {
   await page.goto('https://playwright.dev/');
 
-  // Expect a title "to contain" a substring.
-  await expect(page).toHaveTitle(/Playwright/);
+  // Intentionally failing: expecting the wrong title
+  await expect(page).toHaveTitle(/NotTheRightTitle/);
 });
 
 test('get started link', async ({ page }) => {

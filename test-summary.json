@@ -1,34 +1,18 @@
 {
   "tests": [
     {
-      "testName": "has title",
-      "status": "passed"
-    },
-    {
       "testName": "get started link",
       "status": "passed"
     },
     {
       "testName": "has title",
-      "status": "passed"
-    },
-    {
-      "testName": "has title",
-      "status": "passed"
-    },
-    {
-      "testName": "get started link",
-      "status": "passed"
-    },
-    {
-      "testName": "get started link",
-      "status": "passed"
+      "status": "failed"
     }
   ],
   "summary": {
-    "total": 6,
-    "passed": 6,
-    "failed": 0,
+    "total": 2,
+    "passed": 1,
+    "failed": 1,
     "skipped": 0
   }
 }
